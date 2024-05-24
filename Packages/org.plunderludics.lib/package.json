@@ -1,0 +1,39 @@
+{
+  "name": "org.plunderludics.lib",
+  "version": "0.0.1",
+  "displayName": "Plunderludics.lib",
+  "description": "tools for making games with emulated games using unity-hawk",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.0.2",
+    "com.dbrizov.naughtyattributes": "2.1.4",
+    "org.plunderludics.unityhawk": "0.0.11"
+  },
+  "documentationUrl": "https://github.com/plunderludics/plunderludics.lib",
+  "keywords": [
+    "plunderludics",
+    "emulation",
+    "bizhawk"
+  ],
+  "author": {
+    "name": "plunderludics working group",
+    "url": "https://plunderludics.github.io"
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.dbrizov.naughtyattributes",
+        "org.plunderludics.unityhawk",
+        "com.openupm"
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "displayName": "Mixer",
+      "description": "Demo scene for using the mixer",
+      "path": "Samples~/Mixer"
+    }
+  ]
+}

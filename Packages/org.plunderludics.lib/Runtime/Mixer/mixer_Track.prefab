@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7664192676825156014}
-  - component: {fileID: 7664192676825156000}
-  - component: {fileID: 7664192676825156003}
   - component: {fileID: 4839870630020235418}
   - component: {fileID: 8939178972610989086}
   m_Layer: 0
@@ -35,56 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7664192676825156000
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7664192676825156002}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7664192676825156003
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7664192676825156002}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4839870630020235418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,12 +54,12 @@ MonoBehaviour:
   captureEmulatorAudio: 0
   romFile: {fileID: 0}
   saveStateFile: {fileID: 0}
-  configFile: {fileID: 102900000, guid: d1bfabc83836579498176e4a580a2d25, type: 3}
-  luaScriptFile: {fileID: 102900000, guid: c4df4ff45537dda4094635925416faa3, type: 3}
+  configFile: {fileID: 0}
+  luaScriptFile: {fileID: 0}
   firmwareDirectory: {fileID: 102900000, guid: ede978fa046ce464fa0e4f5427167cca, type: 3}
   _isEnabled: 1
   forceCopyFilesToBuild: 0
-  showBizhawkGui: 1
+  showBizhawkGui: 0
   runInEditMode: 0
   acceptBackgroundInput: 1
   ramWatchFile: {fileID: 0}
@@ -123,8 +71,8 @@ MonoBehaviour:
   useManualPathnames: 0
   romFileName: 
   saveStateFileName: 
-  configFileName: C:\Users\gusta\Desktop\art\plunderludics\plunderunity\Assets\StreamingAssets\config\analogonly.ini
-  luaScriptFileName: C:\Users\gusta\Desktop\art\plunderludics\plunderunity\Assets\StreamingAssets\scripts\track.lua
+  configFileName: 
+  luaScriptFileName: 
   firmwareDirName: C:\Users\gusta\Desktop\art\plunderludics\plunderunity\Assets\StreamingAssets\Firmware
   savestatesOutputDirName: 
   ramWatchFileName: 

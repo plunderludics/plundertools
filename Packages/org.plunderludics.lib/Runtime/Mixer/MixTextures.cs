@@ -6,14 +6,30 @@ public class MixTextures : MonoBehaviour
 {
     public Material mat;
 
+    [UnityEngine.Range(0, 1)]
     public float tex1mix;
+
+    [UnityEngine.Range(0, 1)]
     public float tex2mix;
+
+    [UnityEngine.Range(0, 1)]
     public float tex3mix;
+
+    [UnityEngine.Range(0, 1)]
     public float tex4mix;
+
+    [UnityEngine.Range(0, 1)]
     public float tex5mix;
+
+    [UnityEngine.Range(0, 1)]
     public float tex6mix;
+
+    [UnityEngine.Range(0, 1)]
     public float tex7mix;
+
+    [UnityEngine.Range(0, 1)]
     public float tex8mix;
+
 
     [Header("remapping input")]
     public MapInCurve Curve;

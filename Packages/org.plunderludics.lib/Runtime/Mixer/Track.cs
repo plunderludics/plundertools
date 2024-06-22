@@ -6,15 +6,15 @@ using UnityHawk;
 
 namespace Plunderludics.Lib
 {
-    
+
 // TODO: have texture reference
 [RequireComponent(typeof(Emulator))]
 public class Track : MonoBehaviour
 {
     [Header("config")] [SerializeField] string m_Sample;
 
-    [Range(0, 100)] 
-    [OnValueChanged(nameof(SetVolume))] 
+    [Range(0, 100)]
+    [OnValueChanged(nameof(SetVolume))]
     [SerializeField] float m_Volume;
 
     [ShowNativeProperty]
@@ -24,14 +24,14 @@ public class Track : MonoBehaviour
             if (m_IsPaused == value) return;
             if (value) {
                 m_Emulator.Pause();
-            } else { 
+            } else {
                 m_Emulator.Unpause();
             }
             m_IsPaused = value;
         }
     }
 
-    [Header("debug")] 
+    [Header("debug")]
     [SerializeField, ReadOnly] bool m_IsLoaded;
     [SerializeField, ReadOnly] bool m_LoadedSample;
     [SerializeField, ReadOnly] bool m_SavedSample;
@@ -43,10 +43,6 @@ public class Track : MonoBehaviour
     // -- lifecycle --
     void Awake() {
         m_Emulator = GetComponent<Emulator>();
-    }
-
-    void Start() {
-        // m_Emulator.RegisterMethod("OnLoad", Lua_OnLoad);
     }
 
     void Update() {
@@ -61,7 +57,7 @@ public class Track : MonoBehaviour
     }
 
     public void OnPauseChanged() {
-         
+
     }
 
     public void SetVolume(float volume) {
@@ -81,6 +77,11 @@ public class Track : MonoBehaviour
         Debug.Log($"[track] {name} loading sample : {sampleName} @ {path}");
         m_Emulator.LoadSample(path);
         m_Sample = sampleName;
+        m_LoadedSample = true;
+    }
+    public void LoadSample(Savestate sample) {
+        m_Emulator.LoadState(sample);
+        m_Sample = sample.Name;
         m_LoadedSample = true;
     }
 

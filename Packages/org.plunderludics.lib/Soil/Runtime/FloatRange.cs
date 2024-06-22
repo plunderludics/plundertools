@@ -28,6 +28,10 @@ public struct FloatRange {
     public override string ToString() {
         return $"[${Min}...{Max}]";
     }
+
+    public float Length {
+        get => Mathf.Abs(Max - Min);
+    }
 }
 
 }

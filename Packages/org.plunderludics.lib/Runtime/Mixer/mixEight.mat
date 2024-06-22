@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -127,10 +127,10 @@ Material:
     - _UseUIAlphaClip: 1
     - _ZWrite: 1
     - _tex1mix: 0
-    - _tex2mix: 0
+    - _tex2mix: 0.9184746
     - _tex3mix: 0
     - _tex4mix: 0
-    - _tex5mix: 0
+    - _tex5mix: 0.99203914
     - _tex6mix: 0
     - _tex7mix: 0
     - _tex8mix: 0

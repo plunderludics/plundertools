@@ -3,10 +3,13 @@ using UnityEngine;
 
 namespace Soil {
 
+// TODO: extract timer config similar to DynamicEase
+/// a timer that curves its progress
+[UnityEngine.Scripting.APIUpdating.MovedFrom(true, "ThirdPerson", "ThirdPerson", "EaseTimer")]
 [Serializable]
 public record EaseTimer {
     // -- constants --
-    // the sentinel time for an inacitve timer
+    // the sentinel time for an inactive timer
     const float k_Inactive = -1.0f;
 
     // -- cfg --
@@ -30,7 +33,7 @@ public record EaseTimer {
     public EaseTimer(): this(0.0f) {}
     public EaseTimer(
         float duration,
-        AnimationCurve curve = null
+        UnityEngine.AnimationCurve curve = null
     ) {
         m_Elapsed = k_Inactive;
         m_Duration = duration;
@@ -40,6 +43,7 @@ public record EaseTimer {
     // -- commands --
     /// start the timer (optionally, at a particular raw percent)
     public void Start(float pct = 0.0f, bool isReversed = false) {
+        m_RawPct = pct;
         m_Elapsed = pct * m_Duration;
         m_IsReversed = isReversed;
     }
@@ -72,7 +76,17 @@ public record EaseTimer {
         m_RawPct = m_IsReversed ? 1f - k : k;
     }
 
-    /// try to complete this timer if it's active; calls #Tick
+    /// try to tick this timer forward if it's active
+    public bool TryTick() {
+        if (!IsActive) {
+            return false;
+        }
+
+        Tick();
+        return true;
+    }
+
+    /// try to complete this timer if it's active
     public bool TryComplete() {
         if (!IsActive) {
             return false;
@@ -83,21 +97,6 @@ public record EaseTimer {
     }
 
     // -- queries --
-    /// if the timer is active
-    public bool IsActive {
-        get => m_Elapsed != k_Inactive;
-    }
-
-    /// if the timer is running in reverse
-    public bool IsReversed {
-        get => m_IsReversed;
-    }
-
-    /// if the timer is complete
-    public bool IsComplete {
-        get => m_IsReversed ? m_RawPct == 0f : m_RawPct == 1f;
-    }
-
     /// the curved progress
     public float Pct {
         get => PctFrom(m_RawPct);
@@ -116,6 +115,32 @@ public record EaseTimer {
     public float Raw {
         get => m_RawPct;
     }
+
+    /// the total duration
+    public float Duration {
+        get => m_Duration;
+    }
+
+    /// if the timer is zero-duration
+    public bool IsZero {
+        get => m_Duration == 0f;
+    }
+
+    /// if the timer is active
+    public bool IsActive {
+        get => m_Elapsed != k_Inactive;
+    }
+
+    /// if the timer is running in reverse
+    public bool IsReversed {
+        get => m_IsReversed;
+    }
+
+    /// if the timer is complete
+    public bool IsComplete {
+        get => m_RawPct == (m_IsReversed ? 0f : 1f);
+    }
+
 }
 
 }

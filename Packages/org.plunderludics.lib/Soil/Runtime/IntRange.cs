@@ -34,6 +34,11 @@ public struct IntRange {
     public override string ToString() {
         return $"[${Min}...{Max}]";
     }
+
+    public bool Contains(int value) {
+        return (value >= Min && value < Max)
+        || (value >= Max && value < Min);
+    }
 }
 
 }

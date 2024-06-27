@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using NaughtyAttributes;
 using UnityEngine;
@@ -79,6 +78,7 @@ public class Track : MonoBehaviour
         m_Sample = sampleName;
         m_LoadedSample = true;
     }
+
     public void LoadSample(Savestate sample) {
         m_Emulator.LoadState(sample);
         m_Sample = sample.Name;

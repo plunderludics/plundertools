@@ -6,15 +6,10 @@ using U = UnityEditor.EditorGUIUtility;
 
 namespace Soil.Editor {
 
+// TODO: show the current time when the game is playing
 [CustomPropertyDrawer(typeof(EaseTimer))]
 sealed class EaseTimerDrawer: PropertyDrawer {
     // -- constants --
-    /// the gap between elements
-    const float k_Gap1 = 2f;
-
-    /// the gap between curve & field
-    const float k_Gap2 = 6f;
-
     /// the width of the curve
     const float k_CurveWidth = 40f;
 
@@ -34,7 +29,7 @@ sealed class EaseTimerDrawer: PropertyDrawer {
         E.indentLevel = 0;
 
         // move rect past the label
-        var lw = U.labelWidth + k_Gap1;
+        var lw = U.labelWidth + Theme.Gap1;
         r.x += lw;
         r.width -= lw;
 
@@ -45,8 +40,8 @@ sealed class EaseTimerDrawer: PropertyDrawer {
         rc.height += 1;
         curve.animationCurveValue = E.CurveField(rc, curve.animationCurveValue);
 
-        // draw the range
-        var delta = rc.width + k_Gap2;
+        // draw the duration
+        var delta = rc.width + Theme.Gap3;
         r.x += delta;
         r.width -= delta;
         value.floatValue = E.FloatField(r, value.floatValue);

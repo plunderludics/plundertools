@@ -32,6 +32,11 @@ public struct FloatRange {
     public float Length {
         get => Mathf.Abs(Max - Min);
     }
+
+    public bool Contains(float value) {
+        return (value >= Min && value < Max)
+        || (value >= Max && value < Min);
+    }
 }
 
 }

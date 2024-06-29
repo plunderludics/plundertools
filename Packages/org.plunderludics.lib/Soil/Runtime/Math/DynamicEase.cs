@@ -98,6 +98,11 @@ public struct DynamicEase {
         get => m_Value;
     }
 
+    /// the current velocity
+    public Vector3 Velocity {
+        get => m_Velocity;
+    }
+
     // -- Config --
     public enum ConfigSource {
         Local,

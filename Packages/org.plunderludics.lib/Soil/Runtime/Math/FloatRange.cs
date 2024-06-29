@@ -52,6 +52,13 @@ public struct FloatRange {
         get => Mathf.Abs(Max - Min);
     }
 
+    /// gets a random number within the range
+    public float Random() {
+        var min = Mathf.Min(Min, Max);
+        var max = Mathf.Max(Min, Max);
+        return UnityEngine.Random.Range(min, max);
+    }
+
     /// checks if a value is within the range
     public bool Contains(float value) {
         return (value >= Min && value < Max)

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Plunderludics.Lib
 {
-    
+
 public class TrackMixer : MixTextures
 {
     Track[] m_Tracks;
@@ -11,6 +11,8 @@ public class TrackMixer : MixTextures
     Dictionary<Track, int> m_TrackMap;
 
     public Track[] Tracks => m_Tracks;
+
+    public bool IsRunning => Tracks.All(t => t.gameObject.activeSelf && t.IsRunning);
 
     void OnValidate() { }
 

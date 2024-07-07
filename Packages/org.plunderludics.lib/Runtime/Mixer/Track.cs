@@ -72,7 +72,7 @@ public class Track : MonoBehaviour
 
     // -- commands --
     public void LoadSample(string sampleName) {
-        var path = Path.Combine(Application.streamingAssetsPath, "samples", sampleName, "save.State");
+        var path = Path.Combine(Application.streamingAssetsPath, "samples", sampleName, "save.savestate");
         Debug.Log($"[track] {name} loading sample : {sampleName} @ {path}");
         m_Emulator.LoadSample(path);
         m_Sample = sampleName;

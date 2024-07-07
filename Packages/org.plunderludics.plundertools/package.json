@@ -4,10 +4,10 @@
   "displayName": "Plunderludics.Plundertools",
   "description": "tools for making games with emulated games using unity-hawk",
   "dependencies": {
-    "com.unity.shadergraph": "",
+    "com.unity.shadergraph": "14.0.9",
     "com.unity.nuget.newtonsoft-json": "3.0.2",
     "com.dbrizov.naughtyattributes": "2.1.4",
-    "org.plunderludics.unityhawk": ""
+    "org.plunderludics.unityhawk": "0.0.11"
   },
   "documentationUrl": "https://github.com/plunderludics/plundertools",
   "keywords": [

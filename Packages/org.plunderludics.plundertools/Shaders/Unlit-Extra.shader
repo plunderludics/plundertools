@@ -20,7 +20,7 @@ SubShader {
             #pragma multi_compile_fog
 
             #include "UnityCG.cginc"
-            #include "shared.hlsl"
+            #include "./shared.hlsl"
 
             struct appdata_t {
                 float4 vertex : POSITION;

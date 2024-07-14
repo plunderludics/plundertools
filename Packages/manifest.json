@@ -7,17 +7,9 @@
     "com.unity.postprocessing": "3.3.0",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.audio": "1.0.0",
-    "com.unity.modules.imgui": "1.0.0"
-  },
-  "scopedRegistries": [
-    {
-      "name": "package.openupm.com",
-      "url": "https://package.openupm.com",
-      "scopes": [
-        "com.openupm",
-	      "org.plunderludics.unityhawk",
-        "com.dbrizov.naughtyattributes"
-      ]
-    }
-  ]
+    "com.unity.modules.imgui": "1.0.0",
+    "org.plunderludics.plundertools": "https://github.com/plunderludics/plundertools.git?path=/Packages/org.plunderludics.plundertools",
+    "org.plunderludics.unityhawk": "https://github.com/plunderludics/unity-hawk.git?path=/Packages/org.plunderludics.UnityHawk",
+    "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
+  }
 }

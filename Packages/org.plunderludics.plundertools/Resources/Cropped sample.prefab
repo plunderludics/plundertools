@@ -84,7 +84,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2806378571065648705}
-  - component: {fileID: 1171809222591419134}
   - component: {fileID: 4414557220689006944}
   - component: {fileID: 3158261923978973338}
   - component: {fileID: 3911396758990853080}
@@ -114,19 +113,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 345.26, y: 257.624}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1171809222591419134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3500772145401687655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f6ac432319a1441eab18074869cbb2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notes: Don't move or scale this transform! Move 'ImageControl' instead.
 --- !u!222 &4414557220689006944
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -219,140 +205,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5388962707473246744}
   m_CullTransparentMesh: 1
---- !u!1 &8335297913002549221
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6321246714317701145}
-  - component: {fileID: 2653040185759986678}
-  - component: {fileID: 868869058507152798}
-  - component: {fileID: 843345731137337402}
-  m_Layer: 5
-  m_Name: Outline
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6321246714317701145
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8335297913002549221}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9151400424312508860}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2653040185759986678
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8335297913002549221}
-  m_CullTransparentMesh: 1
---- !u!114 &868869058507152798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8335297913002549221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &843345731137337402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8335297913002549221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 409a53c2fc720400bb482962c5563548, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settings:
-    _blur: 0
-    _endAngle: 360
-    _fillColor: {r: 0.16078432, g: 0.5019608, b: 0.7254902, a: 1}
-    _fillColor2: {r: 0.94509804, g: 0.76862746, b: 0.05882353, a: 0.5019608}
-    _fillOffset: {x: 0, y: 0}
-    _fillPathLoops: 0
-    _fillRotation: 0
-    _fillScale: {x: 1, y: 1}
-    _fillTexture: {fileID: 0}
-    _fillType: 0
-    _gradientAxis: 0
-    _gradientStart: 0
-    _gradientType: 0
-    _gridSize: 50
-    _innerCutout: {x: 0, y: 0}
-    _invertArc: 0
-    _lineSize: 4
-    _obsoleteNumSides: -1
-    _outlineColor: {r: 1, g: 1, b: 1, a: 1}
-    _outlineSize: 2
-    _pathSegments:
-    - p0: {x: -0.3, y: 0, z: 0}
-      p1: {x: 0, y: 0, z: 0}
-      p2: {x: 0.3, y: 0, z: 0}
-    _pathThickness: 0.1
-    _polygonPreset: 4
-    _polyVertices:
-    - {x: -0.000000021855694, y: 0.5}
-    - {x: -0.4330127, y: 0.25000003}
-    - {x: -0.43301263, y: -0.2500001}
-    - {x: 0.0000000059624403, y: -0.5}
-    - {x: 0.43301278, y: -0.24999988}
-    - {x: 0.4330127, y: 0.25000003}
-    _roundness: 0
-    _roundnessBottomLeft: 0
-    _roundnessBottomRight: 0
-    _roundnessPerCorner: 0
-    _roundnessTopLeft: 0
-    _roundnessTopRight: 0
-    _shapeType: 2
-    _startAngle: 0
-    _triangleOffset: 0.5
-    _usePolygonMap: 0
-  wasConverted: 0
-  preConvertedScale: {x: 0, y: 0, z: 0}
 --- !u!1 &8339054549763216075
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,30 +267,26 @@ MonoBehaviour:
   saveStateFile: {fileID: 0}
   configFile: {fileID: 0}
   luaScriptFile: {fileID: 0}
-  firmwareDirectory: {fileID: 102900000, guid: ef90732817446a642a841e5da54c615b, type: 3}
+  ramWatchFile: {fileID: 0}
   _isEnabled: 1
   forceCopyFilesToBuild: 0
   showBizhawkGui: 0
   runInEditMode: 1
   acceptBackgroundInput: 1
-  ramWatchFile: {fileID: 0}
-  savestatesOutputDirectory: {fileID: 0}
-  _initialized: 0
-  _status: 0
+  _initialized: 1
+  _status: 1
   _currentFrame: 117
   _textureSize: {x: 320, y: 240}
-  useManualPathnames: 0
-  romFileName: 
-  saveStateFileName: 
-  configFileName: 
-  luaScriptFileName: 
-  firmwareDirName: C:\Users\darwi\Desktop\projs\pludics\pludic sketchbook\Assets\ROMs\Firmware
-  savestatesOutputDirName: 
-  ramWatchFileName: 
   suppressBizhawkPopups: 1
   writeBizhawkLogs: 1
-  bizhawkLogLocation: BizHawkLogs\Emulator-39002.log
-  audioBufferSurplus: 4410
+  bizhawkLogLocation: BizHawkLogs\Cropped sample-37288.log
+  savestatesOutputPath: 
+  _audioResampler:
+    idealBufferSize: 4096
+    movingAverageN: 1024
+    excessPressureFactor: 0.01
+    rawBufferCount: 0
+    resampleRatio: 1
 --- !u!114 &5628581437856253747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +336,6 @@ RectTransform:
   m_Children:
   - {fileID: 1112986788205801438}
   - {fileID: 2806378571065648705}
-  - {fileID: 6321246714317701145}
   m_Father: {fileID: 1920268100769726256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

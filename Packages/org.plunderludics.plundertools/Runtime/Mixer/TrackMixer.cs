@@ -17,7 +17,7 @@ public class TrackMixer : MixTextures
     void OnValidate() { }
 
     private void Awake() {
-        m_Tracks = GetComponentsInChildren<Track>();
+        m_Tracks = GetComponentsInChildren<Track>(includeInactive: false);
         m_TrackMap = m_Tracks
             .Select((t, i) => new { t, i })
             .ToDictionary(t => t.t, t => t.i);

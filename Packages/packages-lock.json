@@ -64,6 +64,33 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.render-pipelines.core": {
+      "version": "14.0.9",
+      "depth": 2,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.terrain": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0"
+      }
+    },
+    "com.unity.searcher": {
+      "version": "4.9.2",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.shadergraph": {
+      "version": "14.0.9",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "14.0.9",
+        "com.unity.searcher": "4.9.2"
+      }
+    },
     "com.unity.test-framework": {
       "version": "1.1.33",
       "depth": 1,
@@ -75,14 +102,24 @@
       },
       "url": "https://packages.unity.com"
     },
-    "org.plunderludics.lib": {
-      "version": "file:org.plunderludics.lib",
+    "com.unity.ugui": {
+      "version": "1.0.0",
+      "depth": 3,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.modules.ui": "1.0.0",
+        "com.unity.modules.imgui": "1.0.0"
+      }
+    },
+    "org.plunderludics.plundertools": {
+      "version": "file:org.plunderludics.plundertools",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
+        "com.unity.shadergraph": "14.0.9",
         "com.unity.nuget.newtonsoft-json": "3.0.2",
         "com.dbrizov.naughtyattributes": "2.1.4",
-        "org.plunderludics.unityhawk": "0.0.11"
+        "org.plunderludics.unityhawk": "0.0.13"
       }
     },
     "org.plunderludics.unityhawk": {
@@ -128,6 +165,12 @@
     "com.unity.modules.physics": {
       "version": "1.0.0",
       "depth": 1,
+      "source": "builtin",
+      "dependencies": {}
+    },
+    "com.unity.modules.terrain": {
+      "version": "1.0.0",
+      "depth": 3,
       "source": "builtin",
       "dependencies": {}
     },

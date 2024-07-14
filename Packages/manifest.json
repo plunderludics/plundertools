@@ -15,7 +15,7 @@
       "url": "https://package.openupm.com",
       "scopes": [
         "com.openupm",
-	"org.plunderludics.unityhawk",
+	      "org.plunderludics.unityhawk",
         "com.dbrizov.naughtyattributes"
       ]
     }

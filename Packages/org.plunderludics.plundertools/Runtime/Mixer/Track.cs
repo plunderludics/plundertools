@@ -1,6 +1,7 @@
 using System.IO;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityHawk;
 
 namespace Plunderludics.Lib
@@ -10,7 +11,10 @@ namespace Plunderludics.Lib
 [RequireComponent(typeof(Emulator))]
 public class Track : MonoBehaviour
 {
-    [Header("config")] [SerializeField] string m_Sample;
+    [Header("config")]
+    [FormerlySerializedAs("m_Sample")]
+    [SerializeField] string m_SamplePath;
+    [SerializeField] Savestate m_Sample;
 
     [Range(0, 100)]
     [OnValueChanged(nameof(SetVolume))]
@@ -45,7 +49,7 @@ public class Track : MonoBehaviour
     }
 
     void Update() {
-        if (m_IsLoaded && !string.IsNullOrEmpty(m_Sample) && !m_LoadedSample) {
+        if (m_IsLoaded && m_Sample != null && !m_LoadedSample) {
             LoadSample(m_Sample);
         }
     }
@@ -71,17 +75,9 @@ public class Track : MonoBehaviour
     }
 
     // -- commands --
-    public void LoadSample(string sampleName) {
-        var path = Path.Combine(Application.streamingAssetsPath, "samples", sampleName, "save.savestate");
-        Debug.Log($"[track] {name} loading sample : {sampleName} @ {path}");
-        m_Emulator.LoadSample(path);
-        m_Sample = sampleName;
-        m_LoadedSample = true;
-    }
-
     public void LoadSample(Savestate sample) {
         m_Emulator.LoadState(sample);
-        m_Sample = sample.Name;
+        m_SamplePath = sample.Location;
         m_LoadedSample = true;
     }
 
@@ -91,7 +87,7 @@ public class Track : MonoBehaviour
     }
 
     // -- queries --
-    public string Sample {
+    public Savestate Sample {
         get => m_Sample;
         set => m_Sample = value;
     }

@@ -1,6 +1,6 @@
 {
   "name": "org.plunderludics.plundertools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "displayName": "Plunderludics.Plundertools",
   "description": "tools for making games with emulated games using unity-hawk",
   "dependencies": {

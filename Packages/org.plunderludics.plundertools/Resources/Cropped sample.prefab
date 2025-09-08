@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1112986788205801438
 RectTransform:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 345.26, y: 257.624}
+  m_SizeDelta: {x: 828, y: 606}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4414557220689006944
 CanvasRenderer:
@@ -256,37 +256,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e98f0c32c4b9ba42a802fccb13ff791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useAttachedRenderer: 0
+  volume: 100
+  isMuted: 0
+  isPaused: 0
+  speedPercent: 100
+  runOnEnable: 1
+  saveStateFile: {fileID: 0}
+  autoSelectRomFile: 1
+  romFile: {fileID: 0}
+  renderMode: 2
   targetRenderer: {fileID: 0}
   customRenderTexture: 0
   renderTexture: {fileID: 0}
   passInputFromUnity: 1
   inputProvider: {fileID: 0}
   captureEmulatorAudio: 0
-  romFile: {fileID: 0}
-  saveStateFile: {fileID: 0}
-  configFile: {fileID: 0}
-  luaScriptFile: {fileID: 0}
-  ramWatchFile: {fileID: 0}
-  _isEnabled: 1
-  forceCopyFilesToBuild: 0
-  showBizhawkGui: 0
-  runInEditMode: 1
-  acceptBackgroundInput: 1
-  _initialized: 1
-  _status: 1
-  _currentFrame: 117
-  _textureSize: {x: 320, y: 240}
-  suppressBizhawkPopups: 1
-  writeBizhawkLogs: 1
-  bizhawkLogLocation: BizHawkLogs\Cropped sample-37288.log
-  savestatesOutputPath: 
-  _audioResampler:
+  audioResampler:
     idealBufferSize: 4096
     movingAverageN: 1024
     excessPressureFactor: 0.01
-    rawBufferCount: 0
+    sourceBufferCount: 0
     resampleRatio: 1
+  luaScriptFile: {fileID: 0}
+  ramWatchFile: {fileID: 0}
+  baseConfigFile: {fileID: 0}
+  showBizhawkGuiInEditor: 0
+  runInEditMode: 1
+  acceptBackgroundInput: 1
+  muteBizhawkInEditMode: 1
+  config: {fileID: 11400000, guid: 9fa2e33569d57e04898072f8638bc5dd, type: 2}
+  showBizhawkGuiInBuild: 0
+  suppressBizhawkPopups: 1
+  writeBizhawkLogs: 1
+  bizhawkLogLocation: BizHawkLogs\Cropped sample-37288.log
+  _status: 0
+  _currentFrame: 117
+  _systemId: 
 --- !u!114 &5628581437856253747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +305,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emulator: {fileID: 4778323153415584412}
+  multipleMaterials: 0
   blitMaterial: {fileID: 0}
+  blitMaterials: []
   targetType: 0
   rawImage: {fileID: 3158261923978973338}
   renderTexture: {fileID: 8400000, guid: 4a4c5b572fef74647965119729b71dc9, type: 2}

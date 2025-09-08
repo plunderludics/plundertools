@@ -65,7 +65,7 @@ public class Track : MonoBehaviour
 
     public void SetVolume(float volume) {
         m_Volume = volume;
-        m_Emulator.SetVolume(m_Volume);
+        m_Emulator.SetVolume((int)m_Volume);
     }
 
     // -- lua --

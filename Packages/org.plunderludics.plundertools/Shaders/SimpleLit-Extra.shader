@@ -6,6 +6,8 @@ Shader "Plundertools/SimpleLit-Extra"
     {
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _BumpMap ("Normal Map", 2D) = "bump" {}
+        _BumpScale ("Normal Scale", Float) = 1.0
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
         _EmissionColor ("Emission Color", Color) = (1,1,1,1)
@@ -36,16 +38,19 @@ Shader "Plundertools/SimpleLit-Extra"
         #pragma target 3.0
 
         sampler2D _MainTex;
+        sampler2D _BumpMap;
 
         struct Input
         {
             float2 uv_MainTex;
+            float2 uv_BumpMap;
         };
 
         half _Glossiness;
         half _Metallic;
         fixed4 _Color;
         fixed4 _EmissionColor;
+        half _BumpScale;
 
         float _HueShift;
         float _Saturation;
@@ -72,6 +77,7 @@ Shader "Plundertools/SimpleLit-Extra"
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color; // [_Color is made redundant my _Tint below]
 
             o.Albedo = adjustColor(c.rgb, _Lightness, _Saturation, _Contrast, _HueShift, _Tint, _Bypass);
+            o.Normal = UnpackScaleNormal(tex2D(_BumpMap, IN.uv_BumpMap), _BumpScale);
 
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;

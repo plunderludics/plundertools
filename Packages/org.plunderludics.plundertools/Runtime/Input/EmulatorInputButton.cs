@@ -13,7 +13,7 @@ public class EmulatorInputButton : MonoBehaviour, IPointerDownHandler, IPointerU
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        inputProvider.AddInputEvent(new UnityHawk.InputEvent {
+        inputProvider.AddInputEvent(new InputEvent {
             name = keyName,
             value = 1,
             isAnalog = false,

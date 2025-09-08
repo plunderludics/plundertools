@@ -14,16 +14,20 @@ public class EmulatorInputButton : MonoBehaviour, IPointerDownHandler, IPointerU
     public void OnPointerDown(PointerEventData eventData)
     {
         inputProvider.AddInputEvent(new UnityHawk.InputEvent {
-            keyName = keyName,
-            isPressed = true
+            name = keyName,
+            value = 1,
+            isAnalog = false,
+            controller = Controller.P1 // TODO: support multiple controllers ?
         });
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         inputProvider.AddInputEvent(new UnityHawk.InputEvent {
-            keyName = keyName,
-            isPressed = false
+            name = keyName,
+            value = 1,
+            isAnalog = false,
+            controller = Controller.P1
         });
     }
 }

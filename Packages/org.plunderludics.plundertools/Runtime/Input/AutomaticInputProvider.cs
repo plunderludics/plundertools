@@ -21,21 +21,14 @@ public class AutomaticInputProvider : InputProvider
 
     [SerializeField] List<string> initialKeyPresses;
 
-    public override Dictionary<string, int> AxisValuesForFrame()
-    {
-        return autoInputs.ToDictionary(
-            m => m.inputName,
-            m => m.value
-        );
-    }
-
-
     public override List<InputEvent> InputForFrame()
     {
         if (initialKeyPresses != null) {
             var pressed = initialKeyPresses.Select(keyName => new InputEvent {
-                keyName = keyName,
-                isPressed = true
+                name = keyName,
+                value = 1,
+                isAnalog = false,
+                controller = Controller.P1 // TODO: support multiple controllers ?
             }).ToList();
             // initialKeyPresses = null;
             return pressed;

@@ -40,8 +40,14 @@ Shader "Plundertools/SimpleChroma"
         [HideInInspector] _Invert ("Invert", Float) = 0
         [HideInInspector] _Enable ("Enable", Float) = 1
 
-        [Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend mode Source", Int) = 5
-        [Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend mode Destination", Int) = 10
+        _Alpha ("Alpha", Float) = 1
+        _BackgroundAlpha ("Inverse Alpha", Float) = 0
+
+        [Enum(UnityEngine.Rendering.BlendMode)] _RGBBlendSrc ("RGB source blend factor", Int) = 5 //SrcAlpha
+        [Enum(UnityEngine.Rendering.BlendMode)] _RGBBlendDst ("RGB destination blend factor", Int) = 10 //OneMinusSrcAlpha
+
+        [Enum(UnityEngine.Rendering.BlendMode)] _AlphaBlendSrc ("Alpha source blend factor", Int) = 1 //One
+        [Enum(UnityEngine.Rendering.BlendMode)] _AlphaBlendDst ("Alpha destination blend factor", Int) = 0 //Zero
     }
     SubShader
     {
@@ -50,7 +56,7 @@ Shader "Plundertools/SimpleChroma"
 
         Pass
         {
-            Blend [_BlendSrc] [_BlendDst], SrcAlpha OneMinusSrcAlpha
+            Blend [_RGBBlendSrc] [_RGBBlendDst], [_AlphaBlendSrc] [_AlphaBlendDst]
 
             CGPROGRAM
             #pragma vertex vert
@@ -118,6 +124,9 @@ Shader "Plundertools/SimpleChroma"
             float _RGBTolerance5;
             float _RGBTolerance6;
             float _RGBTolerance7;
+
+            float _Alpha;
+            float _BackgroundAlpha;
 
             v2f vert (appdata v)
             {
@@ -201,7 +210,8 @@ Shader "Plundertools/SimpleChroma"
                     }
                 }
 
-                col.a = includePixel ? 1 : 0; // set alpha to 1 if within tolerance, otherwise 0
+                col.a = includePixel ? _Alpha : _BackgroundAlpha; // set alpha to 1 if within tolerance, otherwise 0
+                
                 // return the color
                 return col;
             }

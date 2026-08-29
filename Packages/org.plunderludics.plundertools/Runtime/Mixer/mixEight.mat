@@ -66,15 +66,15 @@ Material:
     - _tex2:
         m_Texture: {fileID: 8400000, guid: ec236c2089e281e4786748a1182fa22f, type: 2}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: -0, y: -0}
     - _tex3:
         m_Texture: {fileID: 8400000, guid: 16ba9478172d3744985a0acf66cad1e9, type: 2}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: -0, y: -0}
     - _tex4:
         m_Texture: {fileID: 8400000, guid: 4c4b3ca991c88294fbe26bf53ad31092, type: 2}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: -0, y: -0}
     - _tex5:
         m_Texture: {fileID: 8400000, guid: c18041f5b87b7f34a8b998c5a56a04c8, type: 2}
         m_Scale: {x: 1, y: 1}
@@ -126,10 +126,10 @@ Material:
     - _UVSec: 0
     - _UseUIAlphaClip: 1
     - _ZWrite: 1
-    - _tex1mix: 0
-    - _tex2mix: 0
-    - _tex3mix: 0
-    - _tex4mix: 0
+    - _tex1mix: 1
+    - _tex2mix: 0.843
+    - _tex3mix: 0.554
+    - _tex4mix: 0.843
     - _tex5mix: 0
     - _tex6mix: 0
     - _tex7mix: 0

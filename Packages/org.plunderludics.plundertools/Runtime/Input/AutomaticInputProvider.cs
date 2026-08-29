@@ -3,39 +3,28 @@
 
 using System;
 using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityHawk;
 
 namespace Plundertools {
 
-public class AutomaticInputProvider : InputProvider
-{
+public class AutomaticInputProvider : InputProvider {
     [Serializable]
     public class AutoInput {
-        public string inputName;
-        public int value;
+        public string Name;
+        public int Value;
     }
+
     [SerializeField] List<AutoInput> autoInputs;
 
     [SerializeField] List<string> initialKeyPresses;
 
-    public override Dictionary<string, int> AxisValuesForFrame()
-    {
-        return autoInputs.ToDictionary(
-            m => m.inputName,
-            m => m.value
-        );
-    }
-
-
-    public override List<InputEvent> InputForFrame()
-    {
+    public override List<InputEvent> InputForFrame() {
         if (initialKeyPresses != null) {
             var pressed = initialKeyPresses.Select(keyName => new InputEvent {
-                keyName = keyName,
-                isPressed = true
+                name = keyName,
+                value = 1
             }).ToList();
             // initialKeyPresses = null;
             return pressed;

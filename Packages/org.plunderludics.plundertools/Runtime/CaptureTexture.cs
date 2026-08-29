@@ -1,5 +1,5 @@
 // Capture texture from emulator and send it to a RawImage or a RenderTexture
-// Optionally blitting with a material (e.g. chroma key) 
+// Optionally blitting with a material (e.g. chroma key)
 
 using NaughtyAttributes;
 using UnityEngine;
@@ -22,11 +22,11 @@ public class CaptureTexture : MonoBehaviour
 
     [ShowIf("targetType",TargetType.RawImage)]
     public RawImage rawImage;
-    
-    [ShowIf("targetType",TargetType.RenderTexture)]
-    public RenderTexture renderTexture;
 
-    [ReadOnly, SerializeField] private RenderTexture _auxTexture;
+    [ShowIf("targetType",TargetType.RenderTexture)]
+    public Texture renderTexture;
+
+    [ReadOnly, SerializeField] private Texture _auxTexture;
 
     void OnEnable()
     {
@@ -42,15 +42,10 @@ public class CaptureTexture : MonoBehaviour
             // then set that on the RawImage
             if (_auxTexture == null) {
                 // TODO: do this also if the size of the emulator texture has changed
-                if (targetType == TargetType.RenderTexture) {
-                    _auxTexture = renderTexture;
-                } else {
-                    // targetType is RawImage
-                    _auxTexture = new RenderTexture(emulator.Texture);
-                }
+                _auxTexture = emulator.Texture;
             }
-            
-            Graphics.Blit(emulator.Texture, _auxTexture, blitMaterial, pass: 0);
+
+            // Graphics.Blit(emulator.Texture, _auxTexture, blitMaterial, pass: 0);
             if (targetType == TargetType.RawImage) {
                 rawImage.texture = _auxTexture;
             }
@@ -59,8 +54,8 @@ public class CaptureTexture : MonoBehaviour
             if (targetType == TargetType.RawImage) {
                 rawImage.texture = emulator.Texture;
             } else {
-                Debug.LogWarning("Using target type RenderTexture with no blit material makes no sense, just use the source texture");
-                Graphics.CopyTexture(emulator.Texture, renderTexture); 
+                Debug.LogWarning("Using target type Texture with no blit material makes no sense, just use the source texture");
+                Graphics.CopyTexture(emulator.Texture, renderTexture);
             }
         }
     }

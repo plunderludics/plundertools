@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7664192676825156014}
   - component: {fileID: 4839870630020235418}
   - component: {fileID: 8939178972610989086}
+  - component: {fileID: 1793823089179955521}
   m_Layer: 0
   m_Name: mixer_Track
   m_TagString: Untagged
@@ -45,40 +46,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e98f0c32c4b9ba42a802fccb13ff791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useAttachedRenderer: 1
+  volume: 100
+  isMuted: 0
+  isPaused: 0
+  runOnAwake: 1
+  useAttachedRenderer: 0
   targetRenderer: {fileID: 0}
   customRenderTexture: 1
   renderTexture: {fileID: 8400000, guid: 9e17e52a11156ef4d99aa0cbc5e29ba4, type: 2}
   passInputFromUnity: 1
-  inputProvider: {fileID: 0}
+  inputProvider: {fileID: 1793823089179955521}
   captureEmulatorAudio: 0
   romFile: {fileID: 0}
   saveStateFile: {fileID: 0}
+  autoSelectRomFile: 1
   configFile: {fileID: 0}
   luaScriptFile: {fileID: 0}
-  firmwareDirectory: {fileID: 102900000, guid: ede978fa046ce464fa0e4f5427167cca, type: 3}
-  _isEnabled: 1
-  forceCopyFilesToBuild: 0
-  showBizhawkGui: 0
+  ramWatchFile: {fileID: 0}
+  showBizhawkGuiInEditor: 0
   runInEditMode: 0
   acceptBackgroundInput: 1
-  ramWatchFile: {fileID: 0}
-  savestatesOutputDirectory: {fileID: 0}
   _initialized: 0
+  _shouldInitialize: 0
   _status: 0
   _currentFrame: 0
+  _systemId: 
   _textureSize: {x: 0, y: 0}
-  useManualPathnames: 0
-  romFileName: 
-  saveStateFileName: 
-  configFileName: 
-  luaScriptFileName: 
-  firmwareDirName: C:\Users\gusta\Desktop\art\plunderludics\plunderunity\Assets\StreamingAssets\Firmware
-  savestatesOutputDirName: 
-  ramWatchFileName: 
+  showBizhawkGuiInBuild: 0
+  muteBizhawkInEditMode: 1
+  config: {fileID: 11400000, guid: 9fa2e33569d57e04898072f8638bc5dd, type: 2}
+  suppressBizhawkPopups: 1
   writeBizhawkLogs: 1
   bizhawkLogLocation: 
-  audioBufferSurplus: 4410
+  _audioResampler:
+    idealBufferSize: 4096
+    movingAverageN: 1024
+    excessPressureFactor: 0.01
+    rawBufferCount: 0
+    resampleRatio: 1
 --- !u!114 &8939178972610989086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,8 +96,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5b46227bbd5634ba97eb7b18577689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Sample: 
+  m_SamplePath: 
+  m_Sample: {fileID: 0}
+  m_Rom: {fileID: 0}
   m_Volume: 0
   m_IsLoaded: 0
   m_LoadedSample: 0
   m_SavedSample: 0
+--- !u!114 &1793823089179955521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7664192676825156002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897a522fdf5f5435eb1f5348ed14bc77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emulator: {fileID: 0}
+  useDefaultControls: 1
+  useControlsObject: 1
+  controlsObject: {fileID: 0}
+  controls:
+    mappings: []

@@ -1,50 +1,93 @@
+using System;
 using System.Collections.Generic;
 using Soil;
 using UnityEngine;
 
-public class MixTextures : MonoBehaviour
-{
+public class MixTextures : MonoBehaviour {
     public Material mat;
 
-    [UnityEngine.Range(0, 1)]
-    public float tex1mix;
+    [System.Serializable]
+    public class TrackMix {
+        [UnityEngine.Range(0, 1)]
+        public float Mix;
 
-    [UnityEngine.Range(0, 1)]
-    public float tex2mix;
+        public Rect Rect = new Rect(0, 0, 1, 1);
+    }
 
-    [UnityEngine.Range(0, 1)]
-    public float tex3mix;
-
-    [UnityEngine.Range(0, 1)]
-    public float tex4mix;
-
-    [UnityEngine.Range(0, 1)]
-    public float tex5mix;
-
-    [UnityEngine.Range(0, 1)]
-    public float tex6mix;
-
-    [UnityEngine.Range(0, 1)]
-    public float tex7mix;
-
-    [UnityEngine.Range(0, 1)]
-    public float tex8mix;
-
+    public TrackMix mix0;
+    public TrackMix mix1;
+    public TrackMix mix2;
+    public TrackMix mix3;
+    public TrackMix mix4;
+    public TrackMix mix5;
+    public TrackMix mix6;
+    public TrackMix mix7;
 
     [Header("remapping input")]
     public MapInCurve Curve;
 
-    List<float> mixList;
+    public float tex0mix {
+        get => mix0.Mix;
+        set => mix0.Mix = value;
+    }
 
-    static readonly int s_TEX1Mix = Shader.PropertyToID("_tex1mix");
-    static readonly int s_TEX2Mix = Shader.PropertyToID("_tex2mix");
-    static readonly int s_TEX3Mix = Shader.PropertyToID("_tex3mix");
-    static readonly int s_TEX4Mix = Shader.PropertyToID("_tex4mix");
-    static readonly int s_TEX5Mix = Shader.PropertyToID("_tex5mix");
-    static readonly int s_TEX6Mix = Shader.PropertyToID("_tex6mix");
-    static readonly int s_TEX7Mix = Shader.PropertyToID("_tex7mix");
-    static readonly int s_TEX8Mix = Shader.PropertyToID("_tex8mix");
+    public float tex1mix {
+        get => mix1.Mix;
+        set => mix1.Mix = value;
+    }
 
+    public float tex2mix {
+        get => mix2.Mix;
+        set => mix2.Mix = value;
+    }
+
+    public float tex3mix {
+        get => mix3.Mix;
+        set => mix3.Mix = value;
+    }
+
+    public float tex4mix {
+        get => mix4.Mix;
+        set => mix4.Mix = value;
+    }
+
+    public float tex5mix {
+        get => mix5.Mix;
+        set => mix5.Mix = value;
+    }
+
+    public float tex6mix {
+        get => mix6.Mix;
+        set => mix6.Mix = value;
+    }
+
+    public float tex7mix {
+        get => mix7.Mix;
+        set => mix7.Mix = value;
+    }
+
+    MaterialPropertyBlock _mpb;
+
+    List<float> _mixList;
+
+    static readonly int s_TEX0_Mix = Shader.PropertyToID("_mix0");
+    static readonly int s_TEX0_ST = Shader.PropertyToID("_tex0_ST");
+    static readonly int s_TEX1_Mix = Shader.PropertyToID("_mix1");
+    static readonly int s_TEX1_ST = Shader.PropertyToID("_tex1_ST");
+    static readonly int s_TEX2_Mix = Shader.PropertyToID("_mix2");
+    static readonly int s_TEX2_ST = Shader.PropertyToID("_tex2_ST");
+    static readonly int s_TEX3_Mix = Shader.PropertyToID("_mix3");
+    static readonly int s_TEX3_ST = Shader.PropertyToID("_tex3_ST");
+    static readonly int s_TEX4_Mix = Shader.PropertyToID("_mix4");
+    static readonly int s_TEX4_ST = Shader.PropertyToID("_tex4_ST");
+    static readonly int s_TEX5_Mix = Shader.PropertyToID("_mix5");
+    static readonly int s_TEX5_ST = Shader.PropertyToID("_tex5_ST");
+    static readonly int s_TEX6_Mix = Shader.PropertyToID("_mix6");
+    static readonly int s_TEX6_ST = Shader.PropertyToID("_tex6_ST");
+    static readonly int s_TEX7_Mix = Shader.PropertyToID("_mix7");
+    static readonly int s_TEX7_ST = Shader.PropertyToID("_tex7_ST");
+
+    public void SetTex0mix(float value) => SetTexMix(0, value);
     public void SetTex1mix(float value) => SetTexMix(1, value);
     public void SetTex2mix(float value) => SetTexMix(2, value);
     public void SetTex3mix(float value) => SetTexMix(3, value);
@@ -52,71 +95,65 @@ public class MixTextures : MonoBehaviour
     public void SetTex5mix(float value) => SetTexMix(5, value);
     public void SetTex6mix(float value) => SetTexMix(6, value);
     public void SetTex7mix(float value) => SetTexMix(7, value);
-    public void SetTex8mix(float value) => SetTexMix(8, value);
 
     public void SetTrackMix(int index, float value) => SetTexMix(index, value);
 
-
     void SetTexMix(int index, float value) {
-        switch (index+1) {
-            case 1:
-                tex1mix = value;
-                break;
-            case 2:
-                tex2mix = value;
-                break;
-            case 3:
-                tex3mix = value;
-                break;
-            case 4:
-                tex4mix = value;
-                break;
-            case 5:
-                tex5mix = value;
-                break;
-            case 6:
-                tex6mix = value;
-                break;
-            case 7:
-                tex7mix = value;
-                break;
-            case 8:
-                tex8mix = value;
-                break;
-            default:
-                throw new System.Exception($"index {index} does not exist");
-        }
+        var mix = index switch {
+            0 => mix0,
+            1 => mix1,
+            2 => mix2,
+            3 => mix3,
+            4 => mix4,
+            5 => mix5,
+            6 => mix6,
+            7 => mix7,
+            _ => throw new IndexOutOfRangeException($"ïndex {index} was out of range")
+        };
+
+        mix.Mix = value;
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        mixList = new List<float>();
-        mixList.Add(tex1mix);
-        mixList.Add(tex2mix);
-        mixList.Add(tex3mix);
-        mixList.Add(tex4mix);
-        mixList.Add(tex5mix);
-        mixList.Add(tex6mix);
-        mixList.Add(tex7mix);
-        mixList.Add(tex8mix);
+    void Start() {
+        _mixList = new List<float>();
+        _mixList.Add(tex0mix);
+        _mixList.Add(tex1mix);
+        _mixList.Add(tex2mix);
+        _mixList.Add(tex3mix);
+        _mixList.Add(tex4mix);
+        _mixList.Add(tex5mix);
+        _mixList.Add(tex6mix);
+        _mixList.Add(tex7mix);
+
         SetMaterialProperties();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         SetMaterialProperties();
     }
 
+    // -- commands --
     void SetMaterialProperties() {
-        mat.SetFloat(s_TEX1Mix, Curve.Evaluate(tex1mix));
-        mat.SetFloat(s_TEX2Mix, Curve.Evaluate(tex2mix));
-        mat.SetFloat(s_TEX3Mix, Curve.Evaluate(tex3mix));
-        mat.SetFloat(s_TEX4Mix, Curve.Evaluate(tex4mix));
-        mat.SetFloat(s_TEX5Mix, Curve.Evaluate(tex5mix));
-        mat.SetFloat(s_TEX6Mix, Curve.Evaluate(tex6mix));
-        mat.SetFloat(s_TEX7Mix, Curve.Evaluate(tex7mix));
-        mat.SetFloat(s_TEX8Mix, Curve.Evaluate(tex8mix));
+        SetMaterialTexture(s_TEX0_Mix, s_TEX0_ST, mix0);
+        SetMaterialTexture(s_TEX1_Mix, s_TEX1_ST, mix1);
+        SetMaterialTexture(s_TEX2_Mix, s_TEX2_ST, mix2);
+        SetMaterialTexture(s_TEX3_Mix, s_TEX3_ST, mix3);
+        SetMaterialTexture(s_TEX4_Mix, s_TEX4_ST, mix4);
+        SetMaterialTexture(s_TEX5_Mix, s_TEX5_ST, mix5);
+        SetMaterialTexture(s_TEX6_Mix, s_TEX6_ST, mix6);
+        SetMaterialTexture(s_TEX7_Mix, s_TEX7_ST, mix7);
     }
+
+    void SetMaterialTexture(int smix, int sst, TrackMix m) {
+        mat.SetFloat(smix, Curve.Evaluate(m.Mix));
+        var st = new Vector4(
+            1f / m.Rect.width, 1f / m.Rect.height,
+            -m.Rect.x / m.Rect.width, -m.Rect.y / m.Rect.height
+        );
+
+        mat.SetVector(sst, st);
+    }
+
 }

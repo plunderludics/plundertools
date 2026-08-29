@@ -30,30 +30,12 @@ function main()
 
 	-- https://github.com/TASEmulators/BizHawk/issues/1141#issuecomment-410577001
 	started = false
-    unityhawk.callmethod("OnLoad", "")
 	while true do
 		gui.clearGraphics()
 		local f = emu.framecount()
 
-		local pauseStr = unityhawk.callmethod("Pause", "")
-        local shouldPause = pauseStr == "true"
-        if (not isPaused and shouldPause) then
-            isPaused = true
-        elseif (isPaused and not shouldPause) then
-            isPaused = false
-        end
-
-        local volumeStr = unityhawk.callmethod("SetVolume", "")
-        if (volumeStr) then
-            local volume = tonumber(volumeStr)
-            client.SetVolume(volume);
-        end
-
-		if not isPaused then
-			emu.frameadvance()
-		else
-		    emu.yield()
-		end
+		emu.frameadvance()
+		emu.yield()
 
 	-- end
 	-- while true do
@@ -74,20 +56,6 @@ function main()
 				}, 1)
 			end
 		end
-
--- 		local newMem = plunder.readMemory()
---      TODO: actually send the state back
--- 		plunder.sendServerState(windowName, instance, newMem)
-
-		-- build log and send to server
-		-- local dbg = ""
-		-- for i, key in ipairs(lib.get_keys(newMem)) do
-		-- 	local msg = key..":"..value
-		-- 	if mem[key]["curr"] ~= value then
-		-- 		mem[key]["curr"] = math.abs(value) < 0.001 and 0 or value
-		-- 	end
-		-- 	dbg = dbg..msg.."\n"
-		-- end
 
 		if SHOW_DEBUG then
 			gui.text(10, 10, dbg)

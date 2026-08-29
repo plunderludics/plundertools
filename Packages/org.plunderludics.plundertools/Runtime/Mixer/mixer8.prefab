@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2315537286146764610}
   - {fileID: 4594190173578180723}
   - {fileID: 3380864120158417242}
   - {fileID: 5082036307782859263}
@@ -37,7 +38,6 @@ Transform:
   - {fileID: 8092743681377383847}
   - {fileID: 6731790424440071129}
   - {fileID: 1391889999332657540}
-  - {fileID: 2315537286146764610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8802273980421449902
@@ -52,15 +52,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509699f29317324449274d684c23df3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mat: {fileID: 2100000, guid: 2c9b2137081cff64dadec711282b7aba, type: 2}
-  tex1mix: 0
-  tex2mix: 0
-  tex3mix: 0
-  tex4mix: 0
-  tex5mix: 0
-  tex6mix: 0
-  tex7mix: 0
-  tex8mix: 0
+  mat: {fileID: 2100000, guid: 1078480a5dceb504b84f3ac7d4bdef5e, type: 2}
+  mix0:
+    Mix: 0
+    Rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+  mix1:
+    Mix: 0
+    Rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+  mix2:
+    Mix: 0
+    Rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+  mix3:
+    Mix: 0
+    Rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+  mix4:
+    Mix: 0
+    Rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+  mix5:
+    Mix: 0
+    Rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+  mix6:
+    Mix: 0
+    Rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+  mix7:
+    Mix: 0
+    Rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
   Curve:
     Curve:
       serializedVersion: 2
@@ -98,13 +154,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 2406799492683350074}
     m_Modifications:
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
+      propertyPath: config
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fa2e33569d57e04898072f8638bc5dd, type: 2}
+    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: romFileName
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: luaScriptFile
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 79a8f7c2b48c8834384e73da5f596b54, type: 3}
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: renderTexture
       value: 
@@ -138,34 +194,6 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.951168
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -196,13 +224,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 2406799492683350074}
     m_Modifications:
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
+      propertyPath: config
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fa2e33569d57e04898072f8638bc5dd, type: 2}
+    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: romFileName
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: luaScriptFile
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 79a8f7c2b48c8834384e73da5f596b54, type: 3}
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: renderTexture
       value: 
@@ -236,34 +264,6 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.951168
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -294,13 +294,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 2406799492683350074}
     m_Modifications:
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
+      propertyPath: config
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fa2e33569d57e04898072f8638bc5dd, type: 2}
+    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: romFileName
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: luaScriptFile
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 79a8f7c2b48c8834384e73da5f596b54, type: 3}
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: renderTexture
       value: 
@@ -334,34 +334,6 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.951168
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -392,13 +364,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 2406799492683350074}
     m_Modifications:
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
+      propertyPath: config
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fa2e33569d57e04898072f8638bc5dd, type: 2}
+    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: romFileName
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: luaScriptFile
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 79a8f7c2b48c8834384e73da5f596b54, type: 3}
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: renderTexture
       value: 
@@ -430,34 +402,6 @@ PrefabInstance:
     - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_RootOrder
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.951168
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -494,10 +438,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: luaScriptFile
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 79a8f7c2b48c8834384e73da5f596b54, type: 3}
-    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: renderTexture
       value: 
       objectReference: {fileID: 8400000, guid: d78e24a80a8ce5a48af2c5347d41402f, type: 2}
@@ -519,7 +459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7664192676825156002, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_Name
-      value: tex8
+      value: tex0
       objectReference: {fileID: 0}
     - target: {fileID: 7664192676825156002, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_IsActive
@@ -528,34 +468,6 @@ PrefabInstance:
     - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_RootOrder
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.951168
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -588,17 +500,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 2406799492683350074}
     m_Modifications:
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
+      propertyPath: config
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fa2e33569d57e04898072f8638bc5dd, type: 2}
+    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: romFileName
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: inputProvider
-      value: 
-      objectReference: {fileID: 6421983622474416577}
-    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: luaScriptFile
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 79a8f7c2b48c8834384e73da5f596b54, type: 3}
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: configFileName
       value: 
@@ -632,34 +540,6 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.951168
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -674,33 +554,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7664192676825156002, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6421983622474416577}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
 --- !u!4 &4594190173578180723 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
   m_PrefabInstance: {fileID: 6169220368120148445}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4594190173578180735 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7664192676825156002, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-  m_PrefabInstance: {fileID: 6169220368120148445}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6421983622474416577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4594190173578180735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 897a522fdf5f5435eb1f5348ed14bc77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7895400386610363791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -710,13 +570,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 2406799492683350074}
     m_Modifications:
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
+      propertyPath: config
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fa2e33569d57e04898072f8638bc5dd, type: 2}
+    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: romFileName
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: luaScriptFile
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 79a8f7c2b48c8834384e73da5f596b54, type: 3}
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: renderTexture
       value: 
@@ -750,34 +610,6 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.951168
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -808,13 +640,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 2406799492683350074}
     m_Modifications:
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
+      propertyPath: config
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fa2e33569d57e04898072f8638bc5dd, type: 2}
+    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: romFileName
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: luaScriptFile
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 79a8f7c2b48c8834384e73da5f596b54, type: 3}
     - target: {fileID: 4839870630020235418, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: renderTexture
       value: 
@@ -846,34 +678,6 @@ PrefabInstance:
     - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_RootOrder
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.951168
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7664192676825156014, guid: 41dbe3674d6862d44936a10d6594ce05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

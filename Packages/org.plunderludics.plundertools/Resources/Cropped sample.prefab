@@ -215,7 +215,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1920268100769726256}
   - component: {fileID: 4778323153415584412}
-  - component: {fileID: 5628581437856253747}
   m_Layer: 5
   m_Name: Cropped sample
   m_TagString: Untagged
@@ -256,6 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e98f0c32c4b9ba42a802fccb13ff791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume: 100
+  isMuted: 0
+  isPaused: 0
   useAttachedRenderer: 0
   targetRenderer: {fileID: 0}
   customRenderTexture: 0
@@ -277,34 +279,16 @@ MonoBehaviour:
   _status: 1
   _currentFrame: 117
   _textureSize: {x: 320, y: 240}
+  config: {fileID: 11400000, guid: 9fa2e33569d57e04898072f8638bc5dd, type: 2}
   suppressBizhawkPopups: 1
   writeBizhawkLogs: 1
-  bizhawkLogLocation: BizHawkLogs\Cropped sample-37288.log
-  savestatesOutputPath: 
+  bizhawkLogLocation: Logs/BizHawk\Cropped sample-44694.log
   _audioResampler:
     idealBufferSize: 4096
     movingAverageN: 1024
     excessPressureFactor: 0.01
     rawBufferCount: 0
     resampleRatio: 1
---- !u!114 &5628581437856253747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8339054549763216075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5671ba9c260993747ab15319a83f3288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emulator: {fileID: 4778323153415584412}
-  blitMaterial: {fileID: 0}
-  targetType: 0
-  rawImage: {fileID: 3158261923978973338}
-  renderTexture: {fileID: 8400000, guid: 4a4c5b572fef74647965119729b71dc9, type: 2}
-  _auxTexture: {fileID: 0}
 --- !u!1 &9138404747502986309
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +298,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9151400424312508860}
-  - component: {fileID: 5740374999155537817}
   m_Layer: 5
   m_Name: Mask
   m_TagString: Untagged
@@ -343,17 +326,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5740374999155537817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9138404747502986309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: 0}
-  m_Softness: {x: 0, y: 0}

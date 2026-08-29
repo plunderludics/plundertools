@@ -1,5 +1,8 @@
+using System;
+using System.Collections;
 using System.IO;
 using NaughtyAttributes;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityHawk;
@@ -15,6 +18,8 @@ public class Track : MonoBehaviour
     [FormerlySerializedAs("m_Sample")]
     [SerializeField] string m_SamplePath;
     [SerializeField] Savestate m_Sample;
+    [SerializeField] Rom m_Rom;
+    [SerializeField] float m_Delay;
 
     [Range(0, 100)]
     [OnValueChanged(nameof(SetVolume))]
@@ -36,10 +41,12 @@ public class Track : MonoBehaviour
 
     [Header("debug")]
     [SerializeField, ReadOnly] bool m_IsLoaded;
-    [SerializeField, ReadOnly] bool m_LoadedSample;
     [SerializeField, ReadOnly] bool m_SavedSample;
 
     Emulator m_Emulator;
+    Coroutine m_CurrentDelay;
+    Action m_CurrentRunningCallback;
+
 
     bool m_IsPaused;
 
@@ -49,8 +56,8 @@ public class Track : MonoBehaviour
     }
 
     void Update() {
-        if (m_IsLoaded && m_Sample != null && !m_LoadedSample) {
-            LoadSample(m_Sample);
+        if (m_Emulator.IsRunning && m_Sample && !m_IsLoaded) {
+            LoadSample(m_Sample, m_Rom);
         }
     }
 
@@ -65,25 +72,82 @@ public class Track : MonoBehaviour
 
     public void SetVolume(float volume) {
         m_Volume = volume;
-        m_Emulator.SetVolume(m_Volume);
-    }
-
-    // -- lua --
-    string Lua_OnLoad(string _) {
-        m_IsLoaded = true;
-        return "";
+        m_Emulator.SetVolume(Mathf.FloorToInt(m_Volume * 100));
     }
 
     // -- commands --
-    public void LoadSample(Savestate sample) {
-        m_Emulator.LoadState(sample);
-        m_SamplePath = sample.Location;
-        m_LoadedSample = true;
+    public void LoadSample(Savestate sample, Rom rom) {
+
+        // TODO: load rom reference in sample and
+        if (m_Rom != rom) {
+            ClearCurrent();
+
+            m_Rom = rom;
+            m_Emulator.LoadRom(rom);
+            if (m_CurrentRunningCallback != null) {
+                m_Emulator.OnRunning -= m_CurrentRunningCallback;
+                m_CurrentRunningCallback = () => {
+                    Debug.Log($"callback for {sample} on track {this} running");
+                    DelayLoadOnce();
+                };
+            }
+            m_Emulator.OnRunning += m_CurrentRunningCallback;
+        } else if (m_Sample != sample) {
+            ClearCurrent();
+
+            DelayLoadOnce();
+        }
+
+        return;
+
+        void ClearCurrent() {
+            if (m_CurrentDelay != null) {
+                Debug.Log($"cancelling a current delay for {m_Rom}=>{m_Sample} for: {rom}=>{sample}");
+                StopCoroutine(m_CurrentDelay);
+            }
+
+        }
+
+        void DelayLoadOnce() {
+            m_Emulator.OnRunning -= DelayLoadOnce;
+            m_SamplePath = sample.Location;
+            m_Sample = sample;
+            m_IsLoaded = true;
+            m_CurrentRunningCallback = null;
+
+            // delay the load
+            m_CurrentDelay = StartCoroutine(Delay(
+                m_Delay, () => {
+                    m_Emulator.LoadState(sample);
+                    m_CurrentDelay = null;
+                    Debug.Log($"loaded state: {sample} on ready", this);
+                }
+            ));
+        }
     }
 
-    public void SaveSample(string sampleName) {
+    IEnumerator Delay(float t, Action a) {
+        yield return new WaitForSeconds(t);
+        a();
+    }
+
+    public void LoadState(string statePath) {
+        // TODO: load rom reference in sample and
+        m_Emulator.LoadState(statePath);
+    }
+
+    public void LoadRom(string romPath) {
+        // TODO: load rom reference in sample and
+        m_Emulator.LoadRom(romPath);
+    }
+
+    public void ReloadState() {
+        m_Emulator.ReloadState();
+    }
+
+    public string SaveSample(string sampleName) {
         Debug.Log($"[track] {name} saveSample sample : {sampleName}");
-        m_Emulator.SaveState(sampleName);
+        return m_Emulator.SaveState(sampleName);
     }
 
     // -- queries --
@@ -96,8 +160,16 @@ public class Track : MonoBehaviour
         get => m_IsLoaded;
     }
 
+    public bool IsStarted {
+        get => m_Emulator.IsStarted;
+    }
+
     public bool IsRunning {
         get => m_Emulator.IsRunning;
+    }
+
+    public void Initialize() {
+        m_Emulator.Initialize();
     }
 }
 }
